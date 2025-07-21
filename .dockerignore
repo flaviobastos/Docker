@@ -1,0 +1,56 @@
+# Git
+.git
+
+# Logs
+**/*.log
+npm-debug.log
+yarn-error.log
+yarn-debug.log*
+
+# Dependencies
+node_modules/
+vendor/
+
+# Laravel - cache and logs
+storage/logs/
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+bootstrap/cache/
+
+# Environment files
+.env
+.env.*.local
+.env.test
+.env.production
+
+# Docker
+docker-compose.yml
+Dockerfile
+Dockerfile.node
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Other
+coverage/
+public/hot/
+public/storage/
+mix-manifest.json
+
+# PHPStorm
+phpstorm.meta.php
+.phpstorm.meta.php
+.phpstorm/
+
+# Tests
+phpunit.xml
+tests/
