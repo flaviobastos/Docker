@@ -4,14 +4,14 @@ services:
         container_name: db
         restart: always
         environment:
-            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_ROOT_PASSWORD=root
         ports:
             - "3306:3306"
         volumes:
             - db-data:/var/lib/mysql
             - db-logs:/var/log/mysql
         networks:
-            - my-network
+            - app_network
 
     php:
         build:
@@ -25,7 +25,7 @@ services:
         depends_on:
             - db
         networks:
-            - my-network
+            - app_network
 
     nginx:
         image: nginx:latest
@@ -39,7 +39,7 @@ services:
         depends_on:
             - php
         networks:
-            - my-network
+            - app_network
 
     node:
         image: node:23.7.0-alpine3.20
@@ -51,12 +51,13 @@ services:
         expose:
             - "5173:5173"
         networks:
-            - my-network
+            - app_network
 
 volumes:
     db-data:
     db-logs:
 
 networks:
-    my-network:
+    app_network:
         driver: bridge
+        name: app_network
