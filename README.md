@@ -23,6 +23,14 @@ docker compose run --rm -it -p 5173:5173 node sh
 
 <hr>
 
+:bulb: <u>Starts phpMyAdmin in background on port 8080, connect to a MySQL container named 'db' via 'app_network' Docker network.</u>
+
+```bash
+docker run -d --rm --name phpmyadmin --network app_network -p 8080:80 -e PMA_HOST=db phpmyadmin/phpmyadmin
+```
+
+<hr>
+
 :bulb: <u>Configure in vite.config.js. Allows external access to the application and defines the port where Vite will run:</u>
 
 ```javascript
