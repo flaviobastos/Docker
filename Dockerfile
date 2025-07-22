@@ -1,19 +1,20 @@
 FROM php:8.4.10-fpm-alpine3.22
 
-# Definir o diretório de trabalho
+# Set the working directory
 WORKDIR /var/www/html
 
-# Instalar extensões necessárias
-RUN docker-php-ext-install pdo pdo_mysql mysqli
+# Install required PHP extensions
+RUN apk add --no-cache libzip-dev unzip \
+    && docker-php-ext-install pdo pdo_mysql mysqli zip
 
-# Copiar o Composer da imagem oficial
+# Copy Composer from the official image
 COPY --from=composer:2.8.10 /usr/bin/composer /usr/local/bin/composer
 
-# Copiar os arquivos do projeto
+# Copy project files
 COPY . /var/www/html
 
-# Expor a porta para PHP-FPM
+# Expose the port for PHP-FPM
 EXPOSE 9000
 
-# Iniciar PHP-FPM
+# Start PHP-FPM
 CMD ["php-fpm"]
