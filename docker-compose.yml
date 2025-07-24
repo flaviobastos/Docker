@@ -1,6 +1,6 @@
 services:
     db:
-        image: mysql:latest
+        image: mariadb:latest
         container_name: db
         restart: always
         environment:
