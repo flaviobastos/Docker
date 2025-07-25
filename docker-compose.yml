@@ -17,7 +17,7 @@ services:
         build:
             context: .
         user: "1000:1000"
-        image: php
+        image: php:8.4.10
         container_name: php
         restart: always
         volumes:
