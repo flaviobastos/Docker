@@ -1,4 +1,12 @@
 
+:bulb: <u>Starts Mailpit in a detached container, maps ports 8025 (web UI) and 1025 (SMTP), and removes the container when stopped:</u>
+
+```bash
+docker run -d --rm -p 8025:8025 -p 1025:1025 --name mailpit axllent/mailpit
+```
+
+<hr>
+
 :bulb: <u>Opens an interactive shell inside the running PHP container:</u>
 
 ```bash
