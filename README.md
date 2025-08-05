@@ -1,4 +1,12 @@
 
+:bulb: <u>Starts phpMyAdmin in background on port 8080, connect to a MySQL container named 'db' via 'app_network' Docker network.</u>
+
+```bash
+docker run -d --rm --name phpmyadmin --network app_network -p 8080:80 -e PMA_HOST=db phpmyadmin/phpmyadmin
+```
+
+<hr>
+
 :bulb: <u>Starts Mailpit in a detached container, maps ports 8025 (web UI) and 1025 (SMTP), and removes the container when stopped:</u>
 
 ```bash
@@ -27,14 +35,6 @@ composer create-project laravel/laravel example-app
 
 ```bash
 docker compose run --rm -it -p 5173:5173 node sh
-```
-
-<hr>
-
-:bulb: <u>Starts phpMyAdmin in background on port 8080, connect to a MySQL container named 'db' via 'app_network' Docker network.</u>
-
-```bash
-docker run -d --rm --name phpmyadmin --network app_network -p 8080:80 -e PMA_HOST=db phpmyadmin/phpmyadmin
 ```
 
 <hr>
