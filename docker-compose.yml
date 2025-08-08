@@ -1,7 +1,7 @@
 services:
-    db:
+    database:
         image: mariadb:latest
-        container_name: db
+        container_name: mariadb
         restart: always
         environment:
             - MARIADB_ROOT_PASSWORD=root
@@ -16,14 +16,14 @@ services:
     php:
         build:
             context: .
-        user: "1000:1000"
-        image: php:8.4.10
+        image: php:8.4.10-fpm-alpine3.22
         container_name: php
+        user: "1000:1000"
         restart: always
         volumes:
             - .:/var/www/html
         depends_on:
-            - db
+            - database
         networks:
             - app_network
 
