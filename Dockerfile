@@ -15,8 +15,11 @@ RUN apk add --no-cache libzip-dev unzip \
     mysqli \
     zip \
     gd \
+    exif \
  && echo "upload_max_filesize=10M" > /usr/local/etc/php/conf.d/uploads.ini \
- && echo "post_max_size=200M" >> /usr/local/etc/php/conf.d/uploads.ini
+ && echo "post_max_size=200M" >> /usr/local/etc/php/conf.d/uploads.ini \
+ && echo "memory_limit=1024M" > /usr/local/etc/php/conf.d/memory.ini
 
 # Copy Composer from the official image
 COPY --from=composer:2.8.10 /usr/bin/composer /usr/local/bin/composer
+
